@@ -14,5 +14,3 @@ def caesar_cipher(string, shift_factor)
       end
   end
 end
-
-p caesar_cipher("What a string!", 5)
