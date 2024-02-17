@@ -1,11 +1,12 @@
+# frozen_string_literal: true
+
 def substrings(text, substrings)
-  substrings.reduce({}) do |hash, substring|
+  substrings.each_with_object({}) do |substring, hash|
     count = text.scan(/#{substring}/i).length
-    hash[substring] = count if count > 0
-    hash
+    hash[substring] = count if count.positive?
   end
 end
 
-dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+dictionary = %w[below down go going horn how howdy it i low own part partner sit]
 p substrings("below", dictionary)
 p substrings("Howdy partner, sit down! How's it going?", dictionary)
